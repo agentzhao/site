@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  app:
+    # user: "node"
+    image: agentzhao/site:latest
+    container_name: site
+    build:
+      context: ./
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules #empty mount to not overwrite node_modules
+    environment:
+      - NODE_ENV="development"
