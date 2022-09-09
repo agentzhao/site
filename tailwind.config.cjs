@@ -2,7 +2,20 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "custom-yellow": "#fdc029",
+        "custom-black": "#171820",
+        "custom-orange": "#df861d",
+        "custom-grey": "#bcb6ae",
+        "background-color": "#1B2430",
+        "custom-purple": "#D6D5A8",
+      },
+    },
+    fontFamily: {
+      Montserrat: ["Monsterrat", "sans-serif"],
+      OpenSans: ["Open Sans", "sans-serif"],
+    },
   },
   plugins: [],
 };
