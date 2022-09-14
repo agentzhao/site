@@ -1,13 +1,14 @@
 <template>
   <div class="grid grid-cols-4 mx-auto w-11/12 md:grid-cols-8 md:w-2/3">
-    <a href="mailto:hi@agentzhao.me?subject=site" target="_self">
+    <a href="https://calendly.com/agentzhao" target="_self">
       <font-awesome-icon
         class="icons"
-        icon="fa-solid fa-envelope"
-        title="Email"
+        icon="fa-solid fa-calendar"
+        title="Calendly"
       />
-      <div class="text-sm text-center font-OpenSans">Email</div>
+      <div class="text-sm text-center font-OpenSans">Calendly</div>
     </a>
+
     <a href="https://github.com/agentzhao" target="_self">
       <font-awesome-icon
         class="hover:text-white icons"
@@ -24,8 +25,6 @@
       <!-- /> -->
       <svg
         class="group fill-black icons"
-        width="25"
-        height="24"
         viewBox="0 0 25 24"
         xmlns="http://www.w3.org/2000/svg"
       >

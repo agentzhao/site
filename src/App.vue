@@ -1,6 +1,6 @@
 <template>
   <!-- <div class="w-screen h-screen bg-black"> -->
-  <div class="w-full h-screen bg-background-color">
+  <div class="w-full h-auto md:h-screen bg-background-color">
     <div class="bg-gradient-to-br from-orange-500 via-yellow-500 to-green-500">
       <!-- <div class="bg-gradient-to-br from-red-500 via-orange-500 to-pink-500"> -->
       <!-- <div class="mx-auto w-full md:w-4/5"> -->
@@ -24,7 +24,7 @@
     </div>
 
     <div class="mx-auto w-full md:w-4/5">
-      <!-- <Experience :isWank="isWank" /> -->
+      <Experience :isWank="isWank" />
       <!-- <button class="bg-red-500" @click="toggleWank">toggleWank</button> -->
       <!-- <ChatBot /> -->
     </div>
@@ -51,3 +51,6 @@ function toggleWank() {
   font-family: "Monsterrat", sans-serif;
 }
 </style>
+
+<!-- colorscheme -->
+<!-- https://www.joshwcomeau.com/ -->

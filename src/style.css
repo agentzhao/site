@@ -4,6 +4,6 @@
 
 @layer components {
   .icons {
-    @apply relative flex items-center justify-center md:h-10 md:w-10 mt-2 mb-2 mx-auto text-custom-black hover:text-white transition-all duration-300 ease-linear;
+    @apply relative flex items-center justify-center h-12 md:h-10 md:w-10 mt-2 mb-2 mx-auto text-custom-black hover:text-white transition-all duration-300 ease-linear;
   }
 }

@@ -13,7 +13,9 @@ import {
   faEnvelope,
   faImage,
   faDownload,
+  faCalendar,
 } from "@fortawesome/free-solid-svg-icons";
+
 import {
   faGithub,
   faYoutube,
@@ -24,6 +26,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 library.add(
+  faCalendar,
   faEnvelope,
   faImage,
   faDownload,
