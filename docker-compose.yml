@@ -1,15 +1,45 @@
 version: "3.9"
 
-# networks:
-#   web:
-#     external: true
-#   internal:
-#     external: false
+networks:
+  backend:
+volumes:
+  db:
+    # driver: local #its the default
 
 services:
+  db:
+    image: postgres:latest
+    container_name: site_db
+    profiles: ["dev", "prod"]
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: $DB_USER
+      POSTGRES_PASSWORD: $DB_PASSWORD
+      POSTGRES_DB: $DB_DATABASE
+    network_mode: traefik
+    networks:
+      - backend
+    # ports:
+    #   - "5432:5432"
+    volumes:
+      - $PWD/db:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer:latest
+    container_name: site_adminer
+    profiles: ["dev"]
+    restart: always
+    networks:
+      - backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
   site_dev:
     image: site:latest
     container_name: site_dev
+    profiles: ["dev"]
     build:
       context: ./
     ports:
@@ -19,14 +49,19 @@ services:
       - /app/node_modules #empty mount to not overwrite node_modules
     environment:
       - NODE_ENV="development"
-  
-  site_prod:
-    image: nginx
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:latest
+    container_name: site_nginx
+    profiles: ["prod"]
     volumes:
       - $PWD/dist:/usr/share/nginx/html
-    container_name: site_prod
     restart: unless-stopped
     network_mode: traefik
+    networks:
+      - backend
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.web.rule=Host(`agentzhao.me`)"
@@ -34,5 +69,34 @@ services:
       - "traefik.http.routers.web.tls.certresolver=lets-encrypt"
       - "traefik.http.routers.web.entrypoints=websecure"
       - "traefik.port=80"
+    depends_on:
+      - db
 
-
+  # db:
+  #   image: cassandra:latest
+  #   container_name: site_db
+  #   profiles: ["dev", "prod"]
+  #   # command: --default-authentication-plugin=mysql_native_password
+  #   environment:
+  #     # MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+  #     # MYSQL_DATABASE: ${DB_NAME}
+  #     # MYSQL_USER: ${DB_USER}
+  #     # MYSQL_PASSWORD: ${DB_PASSWORD}
+  #     - CASSANDRA_SEEDS=cassandra
+  #     - CASSANDRA_PASSWORD_SEEDER=yes
+  #     - CASSANDRA_PASSWORD=cassandra
+  #   volumes:
+  #     - $PWD/db:/var/lib/cassandra
+  #     # - $PWD/db:/var/lib/mysql #sql
+  #   ports:
+  #     - "7000:7000"
+  #     - "7001:7001"
+  #     - "7199:7199"
+  #     - "9042:9042"
+  #     - "9142:9142"
+  #     - "9160:9160"
+  #     # - 3306:3306 #sql
+  #   network_mode: traefik
+  #   networks:
+  #     - backend
+  #   # restart: unless-stopped

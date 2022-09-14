@@ -24,8 +24,9 @@
     </div>
 
     <div class="mx-auto w-full md:w-4/5">
-      <Experience :isWank="isWank" />
+      <!-- <Experience :isWank="isWank" /> -->
       <!-- <button class="bg-red-500" @click="toggleWank">toggleWank</button> -->
+      <!-- <ChatBot /> -->
     </div>
   </div>
 </template>
@@ -34,6 +35,7 @@
 import Header from "./components/Header.vue";
 import Links from "./components/Links.vue";
 import Experience from "./components/Experience.vue";
+import ChatBot from "./components/ChatBot.vue";
 
 let isWank = false;
 function toggleWank() {

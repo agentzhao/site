@@ -1,0 +1,12 @@
+.git
+.gitignore
+README.md
+
+.env
+**/.DS_Store
+.dockerignore
+
+node_modules
+npm-debug.log
+.cache
+public

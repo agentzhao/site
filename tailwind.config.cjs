@@ -17,5 +17,11 @@ module.exports = {
       OpenSans: ["Open Sans", "sans-serif"],
     },
   },
-  plugins: [],
+  variants: {
+    fill: ["hover", "focus"], // this line does the trick
+  },
+  plugins: [
+    require("@tailwindcss/forms"),
+    // ...
+  ],
 };

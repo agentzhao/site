@@ -13,9 +13,9 @@
         <!-- class="absolute bottom-2 scale-125" -->
       </div>
     </div>
-    <div class="mt-3 md:mt-0">
-      <h1 class="font-bold text-custom-black">Hong Zhao</h1>
-      <h1 class="font-normal text-zinc-900">@agentzhao</h1>
+    <div class="mt-3 text-center md:mt-0">
+      <h1 class="font-bold text-center text-custom-black">Hong Zhao</h1>
+      <h1 class="font-normal text-center text-zinc-900">@agentzhao</h1>
     </div>
   </header>
 
