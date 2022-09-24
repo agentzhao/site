@@ -13,7 +13,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      Montserrat: ["Monsterrat", "sans-serif"],
+      Monsterrat: ["Monsterrat", "sans-serif"],
       OpenSans: ["Open Sans", "sans-serif"],
     },
   },

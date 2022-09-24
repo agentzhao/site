@@ -55,7 +55,7 @@ services:
     profiles: ["prod"]
     volumes:
       - $PWD/dist:/usr/share/nginx/html
-    restart: unless-stopped
+    restart: always
     network_mode: traefik
     labels:
       - "traefik.enable=true"
