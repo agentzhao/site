@@ -1,7 +1,8 @@
 version: "3.9"
 
 networks:
-  traefik:
+  internal:
+    internal: true
 
 volumes:
   db:
@@ -14,7 +15,7 @@ services:
     profiles: ["none"]
     restart: unless-stopped
     networks:
-      - "traefik"
+      - "internal"
     environment:
       POSTGRES_USER: $DB_USER
       POSTGRES_PASSWORD: $DB_PASSWORD
@@ -29,7 +30,7 @@ services:
     profiles: ["none"]
     restart: always
     networks:
-      - "traefik"
+      - "internal"
     ports:
       - "8080:8080"
     depends_on:
@@ -59,14 +60,13 @@ services:
     volumes:
       - $PWD/dist:/usr/share/nginx/html
     restart: always
-    networks:
-      - "traefik"
+    network_mode: traefik
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.web.rule=Host(`agentzhao.me`)"
-      - "traefik.http.routers.web.tls=true"
-      - "traefik.http.routers.web.tls.certresolver=lets-encrypt"
-      - "traefik.http.routers.web.entrypoints=websecure"
+      - "traefik.http.routers.site.rule=Host(`agentzhao.me`)"
+      - "traefik.http.routers.site.tls=true"
+      - "traefik.http.routers.site.tls.certresolver=lets-encrypt"
+      - "traefik.http.routers.site.entrypoints=websecure"
       - "traefik.port=80"
     # depends_on:
     # - db
