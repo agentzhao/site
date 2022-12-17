@@ -14,6 +14,7 @@ import {
   faImage,
   faDownload,
   faCalendar,
+  faPenNib,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -28,6 +29,7 @@ import {
 library.add(
   faCalendar,
   faEnvelope,
+  faPenNib,
   faImage,
   faDownload,
   faInstagram,

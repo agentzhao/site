@@ -47,13 +47,13 @@
       </svg>
       <div class="text-sm text-center font-OpenSans">Gitlab</div>
     </a>
-    <a href="https://photos.app.goo.gl/R8gfSH5aNjWGn8aM6" target="_self">
+    <a href="https://blog.agentzhao.me" target="_self">
       <font-awesome-icon
-        class="icons"
-        icon="fa-solid fa-image"
-        title="Photos"
+        class="hover:text-blue-700 icons"
+        icon="fa-solid fa-pen-nib"
+        title="Blog"
       />
-      <div class="text-sm text-center font-OpenSans">Photos</div>
+      <div class="text-sm text-center font-OpenSans">Blog</div>
     </a>
     <a
       href="https://www.linkedin.com/in/hong-zhao-tan-50a846137/"

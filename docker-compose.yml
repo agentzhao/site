@@ -1,8 +1,10 @@
 version: "3.9"
 
+networks:
+  traefik:
+
 volumes:
   db:
-    # driver: local #its the default
 
 services:
   db:
@@ -11,7 +13,8 @@ services:
     # profiles: ["dev", "prod"]
     profiles: ["none"]
     restart: unless-stopped
-    network_mode: traefik
+    networks:
+      - "traefik"
     environment:
       POSTGRES_USER: $DB_USER
       POSTGRES_PASSWORD: $DB_PASSWORD
@@ -25,7 +28,8 @@ services:
     # profiles: ["dev"]
     profiles: ["none"]
     restart: always
-    network_mode: traefik
+    networks:
+      - "traefik"
     ports:
       - "8080:8080"
     depends_on:
@@ -35,7 +39,6 @@ services:
     image: site:latest
     container_name: site_dev
     profiles: ["dev"]
-    network_mode: traefik
     build:
       context: ./
     ports:
@@ -56,7 +59,8 @@ services:
     volumes:
       - $PWD/dist:/usr/share/nginx/html
     restart: always
-    network_mode: traefik
+    networks:
+      - "traefik"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.web.rule=Host(`agentzhao.me`)"

@@ -35,7 +35,7 @@
 import Header from "./components/Header.vue";
 import Links from "./components/Links.vue";
 import Experience from "./components/Experience.vue";
-import ChatBot from "./components/ChatBot.vue";
+// import ChatBot from "./components/ChatBot.vue";
 
 let isWank = false;
 function toggleWank() {
